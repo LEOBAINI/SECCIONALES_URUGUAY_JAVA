@@ -1,0 +1,42 @@
+2022-11-02 17:42:45,359 INFO m.UYmain [main] Iniciando versi�n 1.0
+2022-11-02 17:42:45,363 INFO m.UYmain [main] El contenido del stored procedure a ejecutar es el siguiente
+use monitordb
+go
+create procedure actualizarSeccionalesPoliciales @site_no integer, @jurisdiction_id  integer
+as
+
+update site set change_date=getdate(),change_user=1,change_type='C',jurisdiction_id=@jurisdiction_id where site_no=@site_no
+
+go
+2022-11-02 17:42:45,368 INFO c.ReadPropertyFile [main] leyendo propiedades del archivo configs/Configs.properties
+2022-11-02 17:42:45,369 INFO m.Utilidades [main] Hosts de Mastermind a usar : 10.59.0.102
+2022-11-02 17:42:45,438 INFO m.Utilidades [main] Base de datos : testmonitordb
+2022-11-02 17:42:45,439 INFO m.Utilidades [main] usuarioBase : sa
+2022-11-02 17:42:45,440 INFO m.Utilidades [main] queryExtractora : select site_no,latitude,longitude from site where state_id='MO' and (latitude is not null and longitude is not null) and jurisdiction_id is null
+2022-11-02 17:42:45,442 INFO m.Utilidades [main] queryActualizadora : exec actualizarSeccionalesPoliciales {site_no},{jurisdiction_id} 
+2022-11-02 17:42:45,443 INFO m.Utilidades [main] Leyendo seccionales descriptas en src/seccionalesUruguayInfo
+2022-11-02 17:42:45,514 INFO m.Utilidades [main] Fin de lectura en src/seccionalesUruguayInfo
+2022-11-02 17:42:45,514 INFO m.Utilidades [main] Cargando arreglo est�tico seccionales
+2022-11-02 17:42:45,515 INFO m.Utilidades [main] 26 seccionales cargadas listas para consultar
+2022-11-02 17:42:45,515 INFO m.Utilidades [main] Cargando comisarias
+2022-11-02 17:42:45,517 INFO m.Utilidades [main] Fin de carga de comisarias
+2022-11-02 17:42:45,517 INFO c.ReadPropertyFile [main] leyendo propiedades del archivo configs/Configs.properties
+2022-11-02 17:42:45,519 INFO m.Utilidades [main] Hosts de Mastermind a usar : 10.59.0.102
+2022-11-02 17:42:45,519 INFO m.Utilidades [main] Base de datos : testmonitordb
+2022-11-02 17:42:45,520 INFO m.Utilidades [main] usuarioBase : sa
+2022-11-02 17:42:45,520 INFO m.Utilidades [main] queryExtractora : select site_no,latitude,longitude from site where state_id='MO' and (latitude is not null and longitude is not null) and jurisdiction_id is null
+2022-11-02 17:42:45,521 INFO m.Utilidades [main] queryActualizadora : exec actualizarSeccionalesPoliciales {site_no},{jurisdiction_id} 
+2022-11-02 17:42:45,521 INFO m.Utilidades [main] Iniciando creaci�n de clientes virtuales
+2022-11-02 17:42:48,200 INFO M.Conexion [main] Conexi�n liberada OK
+2022-11-02 17:42:48,200 INFO m.Utilidades [main] Fin de creaci�n de clientes virtuales en el array Utilidades.clientes
+2022-11-02 17:42:48,200 INFO m.Utilidades [main] Clientes que no se pueden geolocalizar 0
+2022-11-02 17:42:48,200 INFO m.Utilidades [main] Clientes geolocalizables 0
+2022-11-02 17:42:48,200 INFO m.Utilidades [main] Imprimiendo query a ejecutar
+2022-11-02 17:42:48,201 INFO m.Utilidades [main] Fin de impresi�n de query a ejecutar
+2022-11-02 17:42:49,657 INFO M.Conexion [main] Conexi�n liberada OK
+2022-11-02 17:42:49,658 INFO M.MetodosSql [main] Ejecutado correctamente: 
+2022-11-02 17:42:49,658 DEBUG m.UYmain [main] This is a debug message
+2022-11-02 17:42:49,658 INFO m.UYmain [main] This is an info message
+2022-11-02 17:42:49,658 WARN m.UYmain [main] This is a warn message
+2022-11-02 17:42:49,659 ERROR m.UYmain [main] This is an error message
+2022-11-02 17:42:49,659 FATAL m.UYmain [main] This is a fatal message
